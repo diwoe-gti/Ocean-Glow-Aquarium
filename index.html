@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocean Glow Aquarium</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="icon" type="video/mp4" href="videos/แมงกระพุน.mp4">
+</head>
+<body>
+<header id="minheader">
+  <nav class ="min-nav">
+    <h1 class="logo">Ocean Glow Aquarium</h1>
+    <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <ul class ="menu-list" id="menu-list">
+      <li><a href ="#home">หน้าแรก</a></li>
+      <li><a href ="#sea">โซนสัตว์น้ำ</a></li>
+      <li><a href ="#ticket">จองบัตรเข้าชม</a></li>      
+      <li><a href ="#contect">ติดต่อ</a></li>
+    </ul>
+</nav>
+</header>
+<video autoplay muted loop disablepictureinpicture class="vdo-แมงกระพุน" id="background-video">
+      <source src="videos/แมงกระพุน.mp4" type="video/mp4">
+</video>
+
+<section id="home">
+    <div class="vdo-ปลาการ์ตูน">
+     <video autoplay muted loop disablepictureinpicture>
+      <source src="videos/ปลาการ์ตูน.mp4" type="video/mp4">
+  </video>
+    </div>
+  <div class ="home">
+     <h2>ดินแดนโลกใต้ทะเล</h2>
+      <p> ดื่มด่ำประสบการณ์โลกใต้น้ำกับเหล่าสัตว์น้ำแสนมหัศจรรย์ 🐟✨<br>
+    สำรวจโซนสัตว์น้ำหายาก แชะภาพมุมสวย และสนุกกับกิจกรรมสุดพิเศษสำหรับทุกวัย 🌊</p>
+  </div>
+</section>
+
+<section id="sea">
+  <div class ="sea">
+    <h2 class="so-sea">🐢 โซนสัตว์น้ำยอดนิยม</h2>
+    <div class="gallery">
+      <section>
+        <video autoplay loop disablepictureinpicture onclick="showText('turtle')">
+          <source src="videos/เต่าทะเล.mp4" type="video/mp4">
+        </video>
+        <article id ="turtle-text" class="hidden">
+          <h2>🐢 เต่าทะเล</h2>
+          <p>นักเดินทางแห่งท้องทะเล! มีเปลือกแข็งช่วยป้องกันภัย<br>
+            ว่ายน้ำเก่ง ชอบอาบแดดบนชายหาด และเป็นสัตว์หายากที่ควรช่วยกันอนุรักษ์ 🌊✨
+          </p>
+        </article>
+      </section>
+      <section>
+       <video autoplay loop disablepictureinpicture onclick="showText('puffer')">
+          <source src="videos/ปลาปักเป้า.mp4" type="video/mp4">
+        </video>
+        <article id ="puffer-text" class="hidden">
+          <h2>🐡 ปลาปักเป้า</h2>
+          <p>ตัวจิ๋วแต่แกร่ง! เวลาตกใจจะพองตัวกลมป้องกันตัวเอง<br>
+            บางชนิดมีพิษรุนแรงแต่ก็น่าหลงใหลเพราะรูปร่างแปลกไม่เหมือนใคร 💨🎈
+          </p>
+        </article>
+      </section>
+      <section>
+        <video autoplay loop disablepictureinpicture onclick="showText('manta')">
+          <source src="videos/ปลากาเบน.mp4" type="video/mp4">
+        </video>
+        <article id ="manta-text" class="hidden">
+            <h2>🐠 ปลากระเบน</h2>
+            <p>ปลาหน้าตายิ้มตลอดเวลา! ลายบนตัวสวยสดใส<br>
+             ว่ายน้ำช้า ๆ อย่างสง่างาม เป็นขวัญใจของนักดำน้ำทั่วโลก 🌴💙
+            </p>
+        </article>
+      </section>
+    </div>
+    
+</section>
+ 
+<section id="ticket" class="ticket">
+  <h2>จองบัตรเข้าชม</h2>
+  <div class="container">
+    <form id="ticketForm">
+      <label>ชื่อ-นามสกุล</label>
+      <input type="text" id="fullname" placeholder="กรอกชื่อ-นามสกุล">
+
+      <label>วันที่เข้าชม</label>
+      <input type="date" id="date">
+
+      <label>จำนวนตั๋ว</label>
+      <input type="number" id="ticketCount" min="1" value="1">
+
+      <label>ประเภทตั๋ว</label>
+      <select id="ticketType">
+        <option value="ผู้ใหญ่">ผู้ใหญ่ (100 บาท)</option>
+        <option value="เด็ก">เด็ก (50 บาท)</option>
+      </select>
+
+      <button type="button" onclick="bookTicket()">จองตั๋ว</button>
+    </form>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <!-- Modal ป๊อปอัป -->
+  <div class="modal" id="successModal">
+    <div class="modal-content">
+      <h3>✅ จองสำเร็จแล้ว!</h3>
+      <p>ขอบคุณที่ใช้บริการ</p>
+      <button onclick="closeModal()">ตกลง</button>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class ="contact">
+     <h1>ติดต่อ</h1>
+      <p>โทร: 0993930554</p>
+  </div>
+</section>
+
+<footer>
+<p>©2025 เว็บไซต์การจำลองเพื่อการศึกษา</p>
+</footer>
+    
+<script src="javascript.js"></script>
+
+</body>
+</html>
